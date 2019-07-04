@@ -28,9 +28,9 @@
                              Height="Auto"
                              IsIndeterminate="True"
                              Style="{StaticResource MaterialDesignCircularProgressBar}" />
-                <Image Width="130"
-                       Height="130"
-                       Source="/Breeze;component/breezelogo.png" />
+                <Image Width="100"
+                       Height="100"
+                       Source="mineski_400x400.jpg" />
             </Grid>
         </materialDesign:Card>
     </Grid>

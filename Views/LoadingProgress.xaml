@@ -36,6 +36,9 @@
                            Width="Auto"
                            Height="Auto"
                            FontSize="40"/>
+                <Image Width="100"
+                       Height="100"
+                       Source="mineski_400x400.jpg" />
             </Grid>
         </materialDesign:Card>
     </Grid>
