@@ -63,12 +63,14 @@
                              Margin="4"
                              Content="GENRES"
                              IsChecked="False"
-                             Style="{StaticResource MaterialDesignTabRadioButton}" />
+                             Style="{StaticResource MaterialDesignTabRadioButton}" 
+                             Visibility="Hidden"/>
                 <RadioButton Name="LibraryBtn"
                              Margin="4"
                              Content="LIBRARY"
                              IsChecked="False"
-                             Style="{StaticResource MaterialDesignTabRadioButton}" />
+                             Style="{StaticResource MaterialDesignTabRadioButton}" 
+                             Visibility="Hidden"/>
             </StackPanel>
         </materialDesign:ColorZone>
         <Grid Name="ThemeBlock"

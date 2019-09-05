@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using GameLauncher.Helpers;
+using System;
+using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
 namespace GameLauncher.Models
@@ -17,6 +19,7 @@ namespace GameLauncher.Models
         private BitmapImage _poster;
         private BitmapImage _banner;
         private string _guid;
+        private string _serverpath;
 
         public string Title
         {
@@ -54,6 +57,19 @@ namespace GameLauncher.Models
             {
                 _path = value;
                 OnPropertyChanged("Path");
+            }
+        }
+
+        public string ServerPath
+        {
+            get
+            {
+                return _serverpath;
+            }
+            set
+            {
+                _serverpath = value;
+                OnPropertyChanged("ServerPath");
             }
         }
 
@@ -129,6 +145,9 @@ namespace GameLauncher.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        
+
 
     }
 }

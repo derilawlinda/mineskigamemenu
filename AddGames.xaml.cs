@@ -34,17 +34,7 @@ namespace GameLauncher
             if (NewGameTitle.Text != "")
             {
                 //This part repairs the link so it launches properly
-                string ngl = NewGameLink.Text;
-                if (!ngl.Contains("http") && (ngl != ""))
-                {
-                    UriBuilder uriBuilder = new UriBuilder
-                    {
-                        Scheme = "http",
-                        Host = NewGameLink.Text
-                    };
-                    Uri uri = uriBuilder.Uri;
-                    NewGameLink.Text = uri.ToString();
-                }
+               
                 if (System.IO.File.Exists("./Resources/GamesList.txt"))
                 {
                     string[] allgames = System.IO.File.ReadAllLines("./Resources/GamesList.txt");
@@ -73,11 +63,12 @@ namespace GameLauncher
                             tsw.WriteLine(NewGameTitle.Text + "|" +
                                           NewGameGenre.Text + "|" +
                                           NewGamePath.Text + "|" +
-                                          NewGameLink.Text + "|" +
+                                          NewGameServerPath.Text + "|" +
                                           NewGameIcon.Text + "|" +
                                           NewGamePoster.Text + "|" +
                                           NewGameBanner.Text + "|" +
-                                          gameGuid);
+                                          gameGuid + "|" +
+                                          NewGameTitle.Text + ".lnk");
                             tsw.Close();
                         }
                         catch (Exception ex)
@@ -102,11 +93,12 @@ namespace GameLauncher
                         tsw.WriteLine(NewGameTitle.Text + "|" +
                                       NewGameGenre.Text + "|" +
                                       NewGamePath.Text + "|" +
-                                      NewGameLink.Text + "|" +
+                                      NewGameServerPath.Text + "|" +
                                       NewGameIcon.Text + "|" +
                                       NewGamePoster.Text + "|" +
                                       NewGameBanner.Text + "|" +
-                                      gameGuid);
+                                      gameGuid + "|" +
+                                      NewGameTitle.Text + ".lnk");
                         tsw.Close();
                     }
                     catch (Exception ex)
@@ -138,8 +130,8 @@ namespace GameLauncher
         {
             NewGameTitle.Text = "";
             NewGamePath.Text = "";
+            NewGameServerPath.Text = "";
             NewGameGenre.Text = "";
-            NewGameLink.Text = "";
             NewGameIcon.Text = "";
             NewGamePoster.Text = "";
             NewGameBanner.Text = "";
@@ -209,14 +201,30 @@ namespace GameLauncher
             var dialogResult = fileDialog.ShowDialog();
             if (dialogResult == true && NewGameTitle.Text != "")
             {
-                newgametitle = NewGameTitle.Text.Replace(":", " -");
                 CreateShortcut(fileDialog.FileName);
-                string installPath = AppDomain.CurrentDomain.BaseDirectory;
-                installPath = installPath.Replace("\\", "/");
-                string ngNewShortcut = installPath + "Resources/shortcuts/" + newgametitle + ".lnk";
-                NewGamePath.Text = newgametitle + ".lnk";
+                NewGamePath.Text = fileDialog.FileName;
+                NewGameServerPath.Text = fileDialog.FileName;
             }
             else if (dialogResult == true && NewGameTitle.Text == "")
+            {
+                MessageBox.Show("Please enter a game title first.");
+            }
+        }
+
+        private void AttachServerPath_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                RestoreDirectory = true,
+                Filter = "Images (*.jpg;*.png;*.bmp) | *.jpg;*.png;*.bmp"
+            };
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true && NewGameTitle.Text != "")
+            {
+                NewGameServerPath.Text = fileDialog.FileName;
+            }
+            else if (dialogResult == true && newgametitle == "")
             {
                 MessageBox.Show("Please enter a game title first.");
             }

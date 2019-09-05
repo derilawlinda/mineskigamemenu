@@ -157,11 +157,12 @@
                                                              Padding="0,0,0,0"
                                                              HorizontalAlignment="Center"
                                                              PlacementMode="LeftAndAlignTopEdges"
-                                                             StaysOpen="False">
+                                                             StaysOpen="False"
+                                                             Visibility="Hidden">
                                         <!--  Items inside overflow  -->
                                         <StackPanel>
                                             <!--  Link Button  -->
-                                            <Button Click="GameLink_OnClick"
+                                            <!--<Button Click="GameLink_OnClick"
                                                     Tag="{Binding Link}">
                                                 <StackPanel Orientation="Horizontal">
                                                     <materialDesign:PackIcon VerticalAlignment="Center"
@@ -169,7 +170,7 @@
                                                     <TextBlock Margin="5,0,0,0"
                                                                Text="Website" />
                                                 </StackPanel>
-                                            </Button>
+                                            </Button>-->
                                             <!--  Edit Button  -->
                                             <Button Click="EditGame_OnClick"
                                                     Tag="{Binding Guid}">

@@ -76,11 +76,12 @@ namespace GameLauncher
                             tsw.WriteLine(EditTitle.Text + "|" +
                                           EditGenre.Text + "|" +
                                           EditPath.Text + "|" +
-                                          EditLink.Text + "|" +
+                                          EditServerPath.Text + "|" +
                                           EditIcon.Text + "|" +
                                           EditPoster.Text + "|" +
                                           EditBanner.Text + "|" +
-                                          Guid.NewGuid());
+                                          Guid.NewGuid() + "|" +
+                                          EditTitle.Text + ".lnk");
                             tsw.Close();
                         }
                         catch (Exception ex)
@@ -163,8 +164,8 @@ namespace GameLauncher
         {
             EditTitle.Text = "";
             EditPath.Text = "";
+            EditServerPath.Text = "";
             EditGenre.Text = "";
-            EditLink.Text = "";
             EditIcon.Text = "";
             EditPoster.Text = "";
             EditBanner.Text = "";
@@ -255,9 +256,27 @@ namespace GameLauncher
             if (dialogResult == true && EditTitle.Text != "")
             {
                 CreateShortcut(fileDialog.FileName);
-                string installPath = AppDomain.CurrentDomain.BaseDirectory;
-                string ngNewShortcut = installPath + "Resources/shortcuts/" + EditTitle.Text + ".lnk";
-                EditPath.Text = EditTitle.Text + ".lnk";
+                EditPath.Text = fileDialog.FileName;
+                EditServerPath.Text = fileDialog.FileName;
+            }
+            else if (dialogResult == true && EditTitle.Text == "")
+            {
+                MessageBox.Show("Please enter a game title first.");
+            }
+        }
+
+        private void AttachServerPath_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                RestoreDirectory = true,
+                Filter = "Images (*.jpg;*.png;*.bmp) | *.jpg;*.png;*.bmp"
+            };
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true && EditTitle.Text != "")
+            {
+                EditServerPath.Text = fileDialog.FileName;
             }
             else if (dialogResult == true && EditTitle.Text == "")
             {

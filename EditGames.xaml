@@ -52,6 +52,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -101,9 +102,35 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
+                        <!-- Edit server Path -->
+
+                        <TextBox Name="EditServerPath"
+                                 Grid.Row="3"
+                                 Grid.ColumnSpan="3"
+                                 Margin="40,0,40,0"
+                                 Width="380"
+                                 HorizontalAlignment="Left"
+                                 materialDesign:HintAssist.Hint="Server Path"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <Button Grid.Row="3"
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Click="AttachServerPath_OnClick"
+                                IsDefault="False"
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach the game launcher">
+                            <materialDesign:PackIcon Width="20"
+                                                     Height="20"
+                                                     VerticalAlignment="Center"
+                                                     Kind="Attachment" />
+                        </Button>
+
+
                         <!--  EditGenres  -->
                         <TextBox Name="EditGenre"
-                                 Grid.Row="3"
+                                 Grid.Row="4"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
@@ -112,7 +139,7 @@
                                  IsReadOnly="True"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <!--  Genre picker button  -->
-                        <Button Grid.Row="3"
+                        <Button Grid.Row="4"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -195,7 +222,7 @@
                         </Button>
                         <!--  EditLink  -->
                         <TextBox Name="EditLink"
-                                 Grid.Row="4"
+                                 Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
@@ -204,14 +231,14 @@
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <!--  EditIcon  -->
                         <TextBox Name="EditIcon"
-                                 Grid.Row="5"
+                                 Grid.Row="6"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Icon"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="5"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -225,7 +252,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="5"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"
@@ -241,14 +268,14 @@
                         </Button>
                         <!--  EditPoster  -->
                         <TextBox Name="EditPoster"
-                                 Grid.Row="6"
+                                 Grid.Row="7"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Poster"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="6"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -262,7 +289,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="6"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"
@@ -278,14 +305,14 @@
                         </Button>
                         <!--  EditBanner  -->
                         <TextBox Name="EditBanner"
-                                 Grid.Row="7"
+                                 Grid.Row="8"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Banner"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="8"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -299,7 +326,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="8"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"

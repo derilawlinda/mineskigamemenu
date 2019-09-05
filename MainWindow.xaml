@@ -83,32 +83,32 @@
                             <!--  Items inside overflow  -->
                             <StackPanel>
                                 <!--  Poster Button  -->
-                                <Button Click="PosterButton_OnClick">
-                                    <StackPanel Orientation="Horizontal">
+                                <!--<Button Click="PosterButton_OnClick" Visibility="Hidden">
+                                    <StackPanel Orientation="Horizontal" Visibility="Hidden">
                                         <materialDesign:PackIcon Margin="0,0,10,0"
                                                                  VerticalAlignment="Center"
                                                                  Kind="ViewList" />
                                         <TextBlock Text="Poster View" />
                                     </StackPanel>
-                                </Button>
+                                </Button>-->
                                 <!--  Banner Button  -->
                                 <Button Click="BannerButton_OnClick">
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Margin="0,0,10,0"
                                                                  VerticalAlignment="Center"
                                                                  Kind="ViewStream" />
-                                        <TextBlock Text="Banner View" />
+                                        <TextBlock Text="Games" />
                                     </StackPanel>
                                 </Button>
                                 <!--  List Button  -->
-                                <Button Click="ListButton_OnClick">
-                                    <StackPanel Orientation="Horizontal">
+                                <!--<Button Click="ListButton_OnClick" Visibility="Hidden">
+                                    <StackPanel Orientation="Horizontal" Visibility="Hidden">
                                         <materialDesign:PackIcon Margin="0,0,10,0"
                                                                  VerticalAlignment="Center"
                                                                  Kind="ViewHeadline" />
                                         <TextBlock Text="List View" />
                                     </StackPanel>
-                                </Button>
+                                </Button>-->
                                 <!--  Refresh Button  -->
                                 <Button x:Name="rgbtn"
                                         Click="RefreshGames_OnClick">
@@ -282,7 +282,8 @@
                 VerticalAlignment="Bottom"
                 Click="OpenAddGameWindow_OnClick"
                 Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-                ToolTip="Add a game">
+                ToolTip="Add a game"
+                Visibility="Visible">
             <materialDesign:PackIcon Width="30"
                                      Height="30"
                                      VerticalAlignment="Center"

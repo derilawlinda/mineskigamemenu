@@ -64,7 +64,7 @@ namespace GameLauncher.ViewModels
                         MainWindow.DialogEditGames.EditTitle.Text = column[0];
                         MainWindow.DialogEditGames.EditGenre.Text = column[1];
                         MainWindow.DialogEditGames.EditPath.Text = column[2];
-                        MainWindow.DialogEditGames.EditLink.Text = column[3];
+                        MainWindow.DialogEditGames.EditServerPath.Text = column[3];
                         MainWindow.DialogEditGames.EditIcon.Text = column[4];
                         MainWindow.DialogEditGames.EditPoster.Text = column[5];
                         MainWindow.DialogEditGames.EditBanner.Text = column[6];

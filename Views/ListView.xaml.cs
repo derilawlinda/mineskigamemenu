@@ -1,9 +1,13 @@
 ﻿using GameLauncher.Models;
 using GameLauncher.Properties;
 using GameLauncher.ViewModels;
+using Npgsql;
 using System;
+using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -34,6 +38,9 @@ namespace GameLauncher.Views
         private void GameLink_OnClick(object sender, RoutedEventArgs e)
         {
             object link = ((Button)sender).Tag;
+          
+            
+
             string linkstring = link.ToString().Trim();
 
             if (linkstring != "")
@@ -58,19 +65,63 @@ namespace GameLauncher.Views
                 }
             }
         }
+        private DataSet dataSet = new DataSet();
+        private DataTable dataTable = new DataTable();
         private void LaunchButton_OnClick(object sender, RoutedEventArgs e)
         {
-            object link = ((Button)sender).Tag;
-            string linkString = link.ToString().Trim();
+            string linkString = "";
+            object gameGuid = ((Button)sender).Tag;
+            gameGuid = gameGuid.ToString();
+            var text = File.ReadAllLines("./Resources/GamesList.txt", Encoding.UTF8);
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i].Contains($"{gameGuid}"))
+                {
+                    try {
+                        string[] column = text[i].Split('|');
+                        linkString = column[8].ToString();
+                        string connstring = String.Format("Server={0};Port={1};" +
+                            "User Id={2};Password={3};Database={4};",
+                            "35.247.132.1","5432","postgres",
+                            "mineski1234","mineski");
+                        using (var conn = new NpgsqlConnection(connstring))
+                        {
+                            conn.Open();
+
+                            using (var cmd = new NpgsqlCommand())
+                            {
+                                cmd.Connection = conn;
+                                cmd.CommandText = "INSERT INTO gameclick (name,category,clicked_at) VALUES (@name , @category, @clicked_at)";
+                                cmd.Parameters.AddWithValue("name", column[0].ToString());
+                                cmd.Parameters.AddWithValue("category", column[1].ToString());
+                                cmd.Parameters.AddWithValue("clicked_at", DateTime.Now);
+                                cmd.ExecuteNonQuery();
+                            }
+                        } 
+                    }
+                    catch
+                    {                        
+                    }
+
+                }
+            }            
+
+            var button = e.OriginalSource as Button;
+            
             if (linkString != "")
             {
+                
                 Process.Start(new ProcessStartInfo(installPath + "Resources/shortcuts/" + linkString));
+
             }
         }
 
         private void EditGame_OnClick(object sender, RoutedEventArgs e)
         {
-            ModifyFile.EditGameInfile(((Button)sender).Tag);
+            object gameGuid = ((Button)sender).Tag;
+            gameGuid = gameGuid.ToString();
+            ModifyFile.EditGameInfile(gameGuid);
+            
         }
 
         private void DeleteGame_OnClick(object sender, RoutedEventArgs e)
@@ -217,5 +268,7 @@ namespace GameLauncher.Views
                     GameListCVS.View.Refresh();
             }
         }
+
+
     }
 }

@@ -128,7 +128,7 @@
                                             Click="LaunchButton_OnClick"
                                             Opacity="0.1"
                                             Style="{StaticResource MaterialDesignFlatButton}"
-                                            Tag="{Binding Path}" />
+                                            Tag="{Binding Guid}" />
                                     <!--  Overflow  -->
                                     <materialDesign:PopupBox Grid.Row="0"
                                                              Grid.RowSpan="1"
@@ -138,11 +138,12 @@
                                                              HorizontalAlignment="Right"
                                                              Foreground="White"
                                                              PlacementMode="LeftAndAlignTopEdges"
-                                                             StaysOpen="False">
+                                                             StaysOpen="False"
+                                                             Visibility="Visible">
                                         <!--  Items inside overflow  -->
                                         <StackPanel>
                                             <!--  Link Button  -->
-                                            <Button Click="GameLink_OnClick"
+                                            <!--<Button Click="GameLink_OnClick"
                                                     Tag="{Binding Link}">
                                                 <StackPanel Orientation="Horizontal">
                                                     <materialDesign:PackIcon VerticalAlignment="Center"
@@ -150,7 +151,7 @@
                                                     <TextBlock Margin="5,0,0,0"
                                                                Text="Website" />
                                                 </StackPanel>
-                                            </Button>
+                                            </Button>-->
                                             <!--  Edit Button  -->
                                             <Button Click="EditGame_OnClick"
                                                     Tag="{Binding Guid}">

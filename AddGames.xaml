@@ -54,6 +54,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -103,9 +104,32 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
+                        <!--  Server Path    -->
+                        <TextBox Name="NewGameServerPath"
+                                 Grid.Row="3"
+                                 Grid.ColumnSpan="3"
+                                 Width="380"
+                                 Margin="40,0,40,0"
+                                 HorizontalAlignment="Left"
+                                 materialDesign:HintAssist.Hint="Path Server"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <Button Grid.Row="3"
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Click="AttachServerPath_OnClick"
+                                IsDefault="False"
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach the game launcher">
+                            <materialDesign:PackIcon Width="20"
+                                                     Height="20"
+                                                     VerticalAlignment="Center"
+                                                     Kind="Attachment" />
+                        </Button>
                         <!--  NewGameGenres  -->
                         <TextBox Name="NewGameGenre"
-                                 Grid.Row="3"
+                                 Grid.Row="4"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
@@ -114,7 +138,7 @@
                                  IsReadOnly="True"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <!--  Genre picker button  -->
-                        <Button Grid.Row="3"
+                        <Button Grid.Row="4"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -196,14 +220,14 @@
                             </Button.CommandParameter>
                         </Button>
                         <!--  NewGameLink  -->
-                        <TextBox Name="NewGameLink"
-                                 Grid.Row="4"
+                        <!--<TextBox Name="NewGameLink"
+                                 Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Web link"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
                         <!--  NewGameIcon  -->
                         <TextBox Name="NewGameIcon"
                                  Grid.Row="5"
