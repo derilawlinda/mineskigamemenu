@@ -134,14 +134,14 @@
                                 </Button>
 
                                 <!--  Game Click Summary Button  -->
-                                <Button Click="GameClickSummary_OnClick">
+                                <!--<Button Click="GameClickSummary_OnClick">
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Margin="0,0,10,0"
                                                                  VerticalAlignment="Center"
                                                                  Kind="Mouse" />
                                         <TextBlock Text="Game Click Summary" />
                                     </StackPanel>
-                                </Button>
+                                </Button>-->
                             </StackPanel>
                         </materialDesign:PopupBox>
                     </DockPanel>
@@ -297,7 +297,7 @@
                 Click="OpenAddGameWindow_OnClick"
                 Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                 ToolTip="Add a game"
-                Visibility="Visible">
+                Visibility="Hidden">
             <materialDesign:PackIcon Width="30"
                                      Height="30"
                                      VerticalAlignment="Center"

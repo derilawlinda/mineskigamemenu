@@ -154,7 +154,8 @@
                                             </Button>-->
                                             <!--  Edit Button  -->
                                             <Button Click="EditGame_OnClick"
-                                                    Tag="{Binding Guid}">
+                                                    Tag="{Binding Guid}"
+                                                    Visibility="Hidden">
                                                 <StackPanel Orientation="Horizontal">
                                                     <materialDesign:PackIcon VerticalAlignment="Center"
                                                                              Kind="Pencil" />
