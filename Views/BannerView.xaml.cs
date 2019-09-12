@@ -1,6 +1,7 @@
 ﻿using GameLauncher.Models;
 using GameLauncher.Properties;
 using GameLauncher.ViewModels;
+using LiteDB;
 using Npgsql;
 using System;
 using System.Diagnostics;
@@ -57,6 +58,7 @@ namespace GameLauncher.Views
         private void LaunchButton_OnClick(object sender, RoutedEventArgs e)
         {
             string linkString = "";
+            string cabang;
             object gameGuid = ((Button)sender).Tag;
             gameGuid = gameGuid.ToString();
             var text = File.ReadAllLines("./Resources/GamesList.txt", Encoding.UTF8);
@@ -66,6 +68,8 @@ namespace GameLauncher.Views
                 {
                     try
                     {
+                        
+
                         string[] column = text[i].Split('|');
                         linkString = column[8].ToString();
                         string connstring = String.Format("Server={0};Port={1};" +
@@ -75,15 +79,28 @@ namespace GameLauncher.Views
                         var conn = new NpgsqlConnection(connstring);
                         conn.Open();
 
-                            using (var cmd = new NpgsqlCommand())
+                        using (var cmd = new NpgsqlCommand())
+                        {
+                            using (var db = new LiteDatabase("mineskigl.db"))
                             {
-                                cmd.Connection = conn;
-                                cmd.CommandText = "INSERT INTO gameclick (name,category,clicked_at) VALUES (@name , @category, @clicked_at)";
-                                cmd.Parameters.AddWithValue("name", column[0].ToString());
-                                cmd.Parameters.AddWithValue("category", column[1].ToString());
-                                cmd.Parameters.AddWithValue("clicked_at", DateTime.Now);
-                                cmd.ExecuteNonQuery();
+                                var col = db.GetCollection("settings");
+
+                                if (col.Count() > 0)
+                                {
+                                    var setting = col.FindById(1);
+                                    cabang = setting["cabang"];
+                                    cmd.Connection = conn;
+                                    cmd.CommandText = "INSERT INTO gameclick (name,category,clicked_at,branch) VALUES (@name , @category, @clicked_at,@branch)";
+                                    cmd.Parameters.AddWithValue("name", column[0].ToString());
+                                    cmd.Parameters.AddWithValue("category", column[1].ToString());
+                                    cmd.Parameters.AddWithValue("clicked_at", DateTime.Now);
+                                    cmd.Parameters.AddWithValue("branch", cabang);
+                                    cmd.ExecuteNonQuery();
+                                }                                
+
                             }
+                                
+                        }
                     }
                     catch
                     {

@@ -41,6 +41,7 @@ namespace GameLauncher
         private PosterViewModel posterViewModel = new PosterViewModel();
         private SettingsViewModel settingsViewModel = new SettingsViewModel();
         private ExesViewModel exesViewModel = new ExesViewModel();
+        private GameClickSummaryViewModel gameClickSummaryViewModel = new GameClickSummaryViewModel();
         private Loading loadingdialog = new Loading();
         public Loading loadingprogressdialog = new Loading();
         public PosterView pv = new PosterView();
@@ -356,6 +357,10 @@ namespace GameLauncher
             if (view == "settings")
             {
                 DataContext = settingsViewModel;
+            }
+            if (view == "gameclicksummary")
+            {
+                DataContext = gameClickSummaryViewModel;
             }
         }
         public void MakeDefaultGenres()
@@ -674,6 +679,14 @@ namespace GameLauncher
             settingsViewModel.LoadGenres();
             DataContext = settingsViewModel;
         }
+
+        public void GameClickSummaryActive()
+        {
+            view = "gameclicksummary";
+            gameClickSummaryViewModel = new GameClickSummaryViewModel();
+            DataContext = gameClickSummaryViewModel;
+        }
+        
         public void IncreaseExeSearch()
         {
             DialogExeSelection.IncreaseImages();
@@ -781,6 +794,10 @@ namespace GameLauncher
             {
                 SettingsViewActive();
             }
+            else if (view == "gameclicksummary")
+            {
+                GameClickSummaryActive();
+            }
         }
         private void PosterButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -805,6 +822,10 @@ namespace GameLauncher
         private void RefreshGames_OnClick(object sender, RoutedEventArgs e)
         {
             RefreshGames();
+        }
+        private void GameClickSummary_OnClick(object sender, RoutedEventArgs e)
+        {
+            GameClickSummaryActive();
         }
         private void MWSizeChanged(object sender, SizeChangedEventArgs e)
         {

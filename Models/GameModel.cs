@@ -1,5 +1,4 @@
-﻿using GameLauncher.Helpers;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 

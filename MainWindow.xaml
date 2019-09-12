@@ -39,6 +39,10 @@
                       DataType="{x:Type viewmodels:SettingsViewModel}">
             <views:SettingsView DataContext="{Binding}" />
         </DataTemplate>
+        <DataTemplate x:Name="gameClickSummaryViewTemplate"
+                      DataType="{x:Type viewmodels:GameClickSummaryViewModel}">
+            <views:GameClickSummaryView DataContext="{Binding}" />
+        </DataTemplate>
         <CollectionViewSource x:Key="GenreListCVS"
                               CollectionViewType="{x:Type dat:ListCollectionView}"
                               Source="{Binding GenreListOC}">
@@ -126,6 +130,16 @@
                                                                  VerticalAlignment="Center"
                                                                  Kind="Settings" />
                                         <TextBlock Text="Settings" />
+                                    </StackPanel>
+                                </Button>
+
+                                <!--  Game Click Summary Button  -->
+                                <Button Click="GameClickSummary_OnClick">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Margin="0,0,10,0"
+                                                                 VerticalAlignment="Center"
+                                                                 Kind="Mouse" />
+                                        <TextBlock Text="Game Click Summary" />
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

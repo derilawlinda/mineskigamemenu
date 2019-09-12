@@ -55,7 +55,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
-                            <RowDefinition Height="60" />
+                            <!--<RowDefinition Height="60" />-->
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*" />
@@ -236,7 +236,8 @@
                                  Margin="40,0,40,0"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Icon"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 Visibility="Hidden"/>
                         <Button Grid.Row="5"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
@@ -245,7 +246,8 @@
                                 Click="AttachIcon_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Attach a small icon file">
+                                ToolTip="Attach a small icon file"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
@@ -259,11 +261,13 @@
                                 Click="SearchIcon_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Search for an icon">
+                                ToolTip="Search for an icon"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
-                                                     Kind="Web" />
+                                                     Kind="Web" 
+                                                     />
                         </Button>
                         <!--  NewGamePoster  -->
                         <TextBox Name="NewGamePoster"
@@ -273,7 +277,8 @@
                                  Margin="40,0,40,0"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Poster"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Visibility="Hidden"/>
                         <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
@@ -282,7 +287,8 @@
                                 Click="AttachPoster_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Attach a poster of the game">
+                                ToolTip="Attach a poster of the game"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
@@ -296,7 +302,8 @@
                                 Click="SearchPoster_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Search for an icon">
+                                ToolTip="Search for an icon"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
@@ -304,14 +311,14 @@
                         </Button>
                         <!--  NewGameBanner  -->
                         <TextBox Name="NewGameBanner"
-                                 Grid.Row="7"
+                                 Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Banner"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="5"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -337,10 +344,11 @@
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
-                                                     Kind="Web" />
+                                                     Kind="Web" 
+                                                     Visibility="Hidden"/>
                         </Button>
                         <!--  CANCEL or ACCEPT button  -->
-                        <Button Grid.Row="12"
+                        <Button Grid.Row="7"
                                 Grid.Column="0"
                                 Margin="10,0,0,10"
                                 HorizontalAlignment="Left"
@@ -349,7 +357,7 @@
                                 Content="CANCEL"
                                 IsCancel="True"
                                 Style="{DynamicResource MaterialDesignFlatButton}" />
-                        <Button Grid.Row="12"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,10,10"
                                 HorizontalAlignment="Right"

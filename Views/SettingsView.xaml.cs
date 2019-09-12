@@ -2,6 +2,7 @@
 using GameLauncher.Models;
 using GameLauncher.Properties;
 using GameLauncher.ViewModels;
+using GenericCodes.CRUD.WPF.Core.MVVM;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Diagnostics;
@@ -25,6 +26,8 @@ namespace GameLauncher.Views
         private MainWindow MainWindow = ((MainWindow)Application.Current.MainWindow);
         private LoadAllGames lag = new LoadAllGames();
         public string DeletedGenre;
+        public CabangList Items;
+        
 
         public void SearchForGames(object sender, RoutedEventArgs e)
         {
@@ -414,6 +417,8 @@ namespace GameLauncher.Views
         {
             Settings.Default.Save();
         }
+
+        
 
     }
 

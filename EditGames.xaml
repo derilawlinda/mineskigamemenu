@@ -53,7 +53,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
-                            <RowDefinition Height="60" />
+                            <!--<RowDefinition Height="60" />-->
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*" />
@@ -228,7 +228,8 @@
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Web link"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Visibility="Hidden"/>
                         <!--  EditIcon  -->
                         <TextBox Name="EditIcon"
                                  Grid.Row="6"
@@ -237,7 +238,8 @@
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Icon"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Visibility="Hidden"/>
                         <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
@@ -246,7 +248,8 @@
                                 Click="AttachIcon_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Attach a small icon file">
+                                ToolTip="Attach a small icon file"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
@@ -264,7 +267,8 @@
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
-                                                     Kind="Web" />
+                                                     Kind="Web" 
+                                                     Visibility="Hidden"/>
                         </Button>
                         <!--  EditPoster  -->
                         <TextBox Name="EditPoster"
@@ -274,7 +278,8 @@
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Poster"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 Visibility="Hidden"/>
                         <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
@@ -283,11 +288,13 @@
                                 Click="AttachPoster_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Attach a poster of the game">
+                                ToolTip="Attach a poster of the game"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
-                                                     Kind="Attachment" />
+                                                     Kind="Attachment" 
+                                                     Visibility="Hidden"/>
                         </Button>
                         <Button Grid.Row="7"
                                 Grid.Column="2"
@@ -301,18 +308,19 @@
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
-                                                     Kind="Web" />
+                                                     Kind="Web"
+                                                     Visibility="Hidden"/>
                         </Button>
                         <!--  EditBanner  -->
                         <TextBox Name="EditBanner"
-                                 Grid.Row="8"
+                                 Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Margin="40,0,40,0"
                                  Width="380"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Banner"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="8"
+                        <Button Grid.Row="5"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -334,14 +342,15 @@
                                 Click="SearchBanner_OnClick"
                                 IsDefault="False"
                                 Style="{DynamicResource MaterialDesignToolButton}"
-                                ToolTip="Search for an icon">
+                                ToolTip="Search for an icon"
+                                Visibility="Hidden">
                             <materialDesign:PackIcon Width="20"
                                                      Height="20"
                                                      VerticalAlignment="Center"
                                                      Kind="Web" />
                         </Button>
                         <!--  CANCEL or ACCEPT button  -->
-                        <Button Grid.Row="12"
+                        <Button Grid.Row="7"
                                 Grid.Column="0"
                                 Margin="10,0,0,10"
                                 HorizontalAlignment="Left"
@@ -350,7 +359,7 @@
                                 Content="CANCEL"
                                 IsCancel="True"
                                 Style="{DynamicResource MaterialDesignFlatButton}" />
-                        <Button Grid.Row="12"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,10,10"
                                 HorizontalAlignment="Right"

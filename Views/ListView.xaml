@@ -28,6 +28,7 @@
                 <scm:SortDescription PropertyName="Name" />
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
+        
     </UserControl.Resources>
     <Grid>
         <!--  Define columns and rows  -->
