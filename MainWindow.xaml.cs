@@ -27,6 +27,7 @@ namespace GameLauncher
         public static AddGames DialogAddGames = new AddGames();
         public static EditGames DialogEditGames = new EditGames();
         public static ExeSelection DialogExeSelection = new ExeSelection();
+        
         public static ObservableCollection<GameList> GameListMW
         {
             get; set;
@@ -73,6 +74,7 @@ namespace GameLauncher
         {
             MakeDirectories();
             MakeDefaultGenres();
+            
             lagbw = new BackgroundWorker
             {
                 WorkerReportsProgress = true
@@ -84,8 +86,7 @@ namespace GameLauncher
             CheckLaunchersExist();
             FixFilePaths();
             InitTraceListen();
-            this.Height = (SystemParameters.PrimaryScreenHeight * 0.75);
-            this.Width = (SystemParameters.PrimaryScreenWidth * 0.75);
+            this.WindowState = WindowState.Maximized;
             LoadAllGames lag = new LoadAllGames();
             LoadSearch ls = new LoadSearch();
             lag.LoadGenres();
@@ -95,6 +96,7 @@ namespace GameLauncher
             DataContext = null;
             isDownloadOpen = false;
             LoadSettings();
+            this.RefreshGames();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
 
