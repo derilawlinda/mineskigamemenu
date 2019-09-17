@@ -55,6 +55,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
                             <!--<RowDefinition Height="60" />-->
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -127,9 +128,18 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
+
+                        <TextBox Name="NewGameShortcutParams"
+                                 Grid.Row="4"
+                                 Grid.ColumnSpan="3"
+                                 Width="380"
+                                 Margin="40,0,40,0"
+                                 HorizontalAlignment="Left"
+                                 materialDesign:HintAssist.Hint="Parameter"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <!--  NewGameGenres  -->
                         <TextBox Name="NewGameGenre"
-                                 Grid.Row="4"
+                                 Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
@@ -138,7 +148,7 @@
                                  IsReadOnly="True"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <!--  Genre picker button  -->
-                        <Button Grid.Row="4"
+                        <Button Grid.Row="5"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -230,7 +240,7 @@
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
                         <!--  NewGameIcon  -->
                         <TextBox Name="NewGameIcon"
-                                 Grid.Row="5"
+                                 Grid.Row="6"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
@@ -238,7 +248,7 @@
                                  materialDesign:HintAssist.Hint="Icon"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  Visibility="Hidden"/>
-                        <Button Grid.Row="5"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -253,7 +263,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="5"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"
@@ -271,7 +281,7 @@
                         </Button>
                         <!--  NewGamePoster  -->
                         <TextBox Name="NewGamePoster"
-                                 Grid.Row="6"
+                                 Grid.Row="7"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
@@ -279,7 +289,7 @@
                                  materialDesign:HintAssist.Hint="Poster"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Visibility="Hidden"/>
-                        <Button Grid.Row="6"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -294,7 +304,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="6"
+                        <Button Grid.Row="7"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"
@@ -311,14 +321,14 @@
                         </Button>
                         <!--  NewGameBanner  -->
                         <TextBox Name="NewGameBanner"
-                                 Grid.Row="5"
+                                 Grid.Row="6"
                                  Grid.ColumnSpan="3"
                                  Width="380"
                                  Margin="40,0,40,0"
                                  HorizontalAlignment="Left"
                                  materialDesign:HintAssist.Hint="Banner"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <Button Grid.Row="5"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,10,0"
                                 HorizontalAlignment="Right"
@@ -332,7 +342,7 @@
                                                      VerticalAlignment="Center"
                                                      Kind="Attachment" />
                         </Button>
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="6"
                                 Grid.Column="2"
                                 Margin="0,0,50,0"
                                 HorizontalAlignment="Right"
@@ -348,7 +358,7 @@
                                                      Visibility="Hidden"/>
                         </Button>
                         <!--  CANCEL or ACCEPT button  -->
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="8"
                                 Grid.Column="0"
                                 Margin="10,0,0,10"
                                 HorizontalAlignment="Left"
@@ -357,7 +367,7 @@
                                 Content="CANCEL"
                                 IsCancel="True"
                                 Style="{DynamicResource MaterialDesignFlatButton}" />
-                        <Button Grid.Row="7"
+                        <Button Grid.Row="8"
                                 Grid.Column="2"
                                 Margin="0,0,10,10"
                                 HorizontalAlignment="Right"

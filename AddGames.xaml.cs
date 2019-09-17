@@ -34,7 +34,9 @@ namespace GameLauncher
             if (NewGameTitle.Text != "")
             {
                 //This part repairs the link so it launches properly
-               
+                string directoryPath = Path.GetDirectoryName(NewGamePath.Text);
+                CreateShortcut(NewGamePath.Text, directoryPath, NewGameShortcutParams.Text);
+
                 if (System.IO.File.Exists("./Resources/GamesList.txt"))
                 {
                     string[] allgames = System.IO.File.ReadAllLines("./Resources/GamesList.txt");
@@ -68,7 +70,8 @@ namespace GameLauncher
                                           NewGamePoster.Text + "|" +
                                           NewGameBanner.Text + "|" +
                                           gameGuid + "|" +
-                                          NewGameTitle.Text + ".lnk");
+                                          NewGameTitle.Text + ".lnk" + "|" +
+                                          NewGameShortcutParams.Text);
                             tsw.Close();
                         }
                         catch (Exception ex)
@@ -98,7 +101,8 @@ namespace GameLauncher
                                       NewGamePoster.Text + "|" +
                                       NewGameBanner.Text + "|" +
                                       gameGuid + "|" +
-                                      NewGameTitle.Text + ".lnk");
+                                      NewGameTitle.Text + ".lnk" + "|" +
+                                      NewGameShortcutParams.Text);
                         tsw.Close();
                     }
                     catch (Exception ex)
@@ -135,6 +139,7 @@ namespace GameLauncher
             NewGameIcon.Text = "";
             NewGamePoster.Text = "";
             NewGameBanner.Text = "";
+            NewGameShortcutParams.Text = "";
         }
 
         private void TitleTextChanged(object sender, EventArgs e)
@@ -201,7 +206,6 @@ namespace GameLauncher
             var dialogResult = fileDialog.ShowDialog();
             if (dialogResult == true && NewGameTitle.Text != "")
             {
-                CreateShortcut(fileDialog.FileName);
                 NewGamePath.Text = fileDialog.FileName;
                 NewGameServerPath.Text = fileDialog.FileName;
             }
@@ -294,8 +298,8 @@ namespace GameLauncher
                 string installPath = AppDomain.CurrentDomain.BaseDirectory;
                 installPath = installPath.Replace("\\", "/");
                 string ngBannerFile = fileDialog.FileName;
-                System.IO.File.Copy(ngBannerFile, @"./Resources/img/" + newgametitle + "-banner.png", true);
-                NewGameBanner.Text = newgametitle + "-banner.png";
+                System.IO.File.Copy(ngBannerFile, @"./Resources/img/" + NewGameTitle.Text + "-banner.png", true);
+                NewGameBanner.Text = NewGameTitle.Text + "-banner.png";
             }
             else if (dialogResult == true && NewGameTitle.Text == "")
             {
@@ -303,7 +307,7 @@ namespace GameLauncher
             }
         }
 
-        private void CreateShortcut(string linkname)
+        private void CreateShortcut(string linkname, string linkpath, string arguments)
         {
             newgametitle = NewGameTitle.Text.Replace(":", " -");
             string installPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -315,11 +319,11 @@ namespace GameLauncher
             WshShell wsh = new WshShell();
             IWshShortcut shortcut = wsh.CreateShortcut(
                 installPath + "\\Resources\\shortcuts" + "\\" + newgametitle + ".lnk") as IWshShortcut;
-            shortcut.Arguments = "";
-            shortcut.TargetPath = linkname;
+            shortcut.TargetPath = String.Format("{0}",linkname);
+            shortcut.Arguments = arguments;
             shortcut.WindowStyle = 1;
             shortcut.Description = "Shortcut to " + newgametitle;
-            shortcut.WorkingDirectory = "C:\\App";
+            shortcut.WorkingDirectory = linkpath;
             shortcut.IconLocation = linkname;
             shortcut.Save();
         }
