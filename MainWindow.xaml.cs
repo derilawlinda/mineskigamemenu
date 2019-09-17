@@ -84,8 +84,7 @@ namespace GameLauncher
             CheckLaunchersExist();
             FixFilePaths();
             InitTraceListen();
-            this.Height = (SystemParameters.PrimaryScreenHeight * 0.75);
-            this.Width = (SystemParameters.PrimaryScreenWidth * 0.75);
+            this.WindowState = WindowState.Maximized;
             LoadAllGames lag = new LoadAllGames();
             LoadSearch ls = new LoadSearch();
             lag.LoadGenres();
@@ -94,6 +93,7 @@ namespace GameLauncher
             LoadAllViews();
             DataContext = null;
             isDownloadOpen = false;
+            this.RefreshGames();
             LoadSettings();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
