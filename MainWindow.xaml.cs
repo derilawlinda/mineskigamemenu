@@ -655,6 +655,7 @@ namespace GameLauncher
         {
             view = "poster";
             DataContext = posterViewModel;
+            this.RefreshGames();
             Settings.Default.viewtype = "Poster";
             Settings.Default.Save();
         }
