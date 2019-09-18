@@ -6,7 +6,7 @@
         xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewmodels="clr-namespace:GameLauncher.ViewModels"
         xmlns:views="clr-namespace:GameLauncher.Views"
-        Title="Mineski Infinity Indonesia - Game Launcher"
+        Title="Mineski Infinity Indonesia - Game Launcher Client"
         MinWidth="400"
         MinHeight="600"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -185,7 +185,8 @@
                                     Click="OpenLauncher"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     Tag="Steam"
-                                    ToolTip="Steam">
+                                    ToolTip="Steam"
+                                    Visibility="Hidden">
                                 <materialDesign:PackIcon Width="20"
                                                          Height="20"
                                                          Margin="5,5,5,5"
@@ -199,7 +200,8 @@
                                     Click="OpenLauncher"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     Tag="Origin"
-                                    ToolTip="Origin">
+                                    ToolTip="Origin"
+                                    Visibility="Hidden">
                                 <materialDesign:PackIcon Width="20"
                                                          Height="20"
                                                          Margin="5,5,5,5"
@@ -214,7 +216,8 @@
                                     Click="OpenLauncher"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     Tag="Uplay"
-                                    ToolTip="Uplay">
+                                    ToolTip="Uplay"
+                                    Visibility="Hidden">
                                 <materialDesign:PackIcon Width="20"
                                                          Height="20"
                                                          Margin="5,5,5,5"
@@ -229,7 +232,8 @@
                                     Click="OpenLauncher"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     Tag="Battle"
-                                    ToolTip="Battle.Net">
+                                    ToolTip="Battle.Net"
+                                    Visibility="Hidden">
                                 <materialDesign:PackIcon Width="20"
                                                          Height="20"
                                                          Margin="5,5,5,5"
@@ -244,7 +248,8 @@
                                     Click="OpenLauncher"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     Tag="Epic"
-                                    ToolTip="Epic Games">
+                                    ToolTip="Epic Games"
+                                    Visibility="Hidden">
                                 <materialDesign:PackIcon Width="20"
                                                          Height="20"
                                                          Margin="5,5,5,5"
