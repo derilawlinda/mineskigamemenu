@@ -20,6 +20,7 @@ using Innovative.SolarCalculator;
 
 namespace GameLauncher
 {
+    
     public partial class MainWindow : Window
     {
         public bool isDownloadOpen = false;
@@ -85,7 +86,7 @@ namespace GameLauncher
             Trace.Listeners.Clear();
             CheckLaunchersExist();
             FixFilePaths();
-            InitTraceListen();
+            InitTraceListen();          
             this.WindowState = WindowState.Maximized;
             LoadAllGames lag = new LoadAllGames();
             LoadSearch ls = new LoadSearch();
@@ -96,6 +97,7 @@ namespace GameLauncher
             DataContext = null;
             isDownloadOpen = false;
             LoadSettings();
+            BannerViewActive();          
             RefreshGames();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
@@ -983,7 +985,7 @@ namespace GameLauncher
             {
                 AddGameButton.Style = Application.Current.Resources["MaterialDesignFloatingActionAccentButton"] as Style;
             }
-            UpdateLauncherButtons();
+            UpdateLauncherButtons();          
         }
     }
 }
