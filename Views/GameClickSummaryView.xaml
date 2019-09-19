@@ -34,8 +34,8 @@
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn HeaderText="Game" MappingName="Name" />
                 <syncfusion:GridTextColumn HeaderText="Today" MappingName="TodayCount" />
-                <syncfusion:GridTextColumn HeaderText="Last Week" MappingName="LastWeekCount" />
                 <syncfusion:GridTextColumn HeaderText="This Week" MappingName="ThisWeekCount" />
+                <syncfusion:GridTextColumn HeaderText="Last Week" MappingName="LastWeekCount" />
                 <syncfusion:GridTextColumn HeaderText="This Month" MappingName="ThisMonthCount" />
                 <syncfusion:GridTextColumn HeaderText="Last Month" MappingName="LastMonthCount" />
                 <syncfusion:GridTextColumn HeaderText="Total" MappingName="TotalCount" />
