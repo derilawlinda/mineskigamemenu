@@ -94,6 +94,7 @@ namespace GameLauncher
             DataContext = null;
             isDownloadOpen = false;
             LoadSettings();
+            BannerViewActive();
             RefreshGames();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
