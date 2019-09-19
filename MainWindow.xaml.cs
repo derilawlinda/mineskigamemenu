@@ -96,7 +96,7 @@ namespace GameLauncher
             DataContext = null;
             isDownloadOpen = false;
             LoadSettings();
-            this.RefreshGames();
+            RefreshGames();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
 
@@ -657,7 +657,6 @@ namespace GameLauncher
         {
             view = "poster";
             DataContext = posterViewModel;
-            this.RefreshGames();
             Settings.Default.viewtype = "Poster";
             Settings.Default.Save();
         }
@@ -811,6 +810,7 @@ namespace GameLauncher
         {
             Trace.WriteLine(DateTime.Now + ": Banner View Active");
             BannerViewActive();
+            RefreshGames();
         }
         private void ListButton_OnClick(object sender, RoutedEventArgs e)
         {
