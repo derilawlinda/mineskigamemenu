@@ -663,6 +663,7 @@ namespace GameLauncher
         {
             view = "banner";
             DataContext = bannerViewModel;
+            this.RefreshGames();
             Settings.Default.viewtype = "Banner";
             Settings.Default.Save();
         }
