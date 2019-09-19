@@ -93,8 +93,8 @@ namespace GameLauncher
             LoadAllViews();
             DataContext = null;
             isDownloadOpen = false;
-            this.RefreshGames();
             LoadSettings();
+            RefreshGames();
             Trace.WriteLine(DateTime.Now + ": New Session started");
         }
 
@@ -287,7 +287,7 @@ namespace GameLauncher
             }
             if (Settings.Default.viewtype.ToString() == "Banner")
             {
-                BannerViewActive();
+                BannerViewActive();                
             }
             if (Settings.Default.viewtype.ToString() == "List")
             {
@@ -655,7 +655,6 @@ namespace GameLauncher
         {
             view = "poster";
             DataContext = posterViewModel;
-            this.RefreshGames();
             Settings.Default.viewtype = "Poster";
             Settings.Default.Save();
         }
@@ -663,7 +662,6 @@ namespace GameLauncher
         {
             view = "banner";
             DataContext = bannerViewModel;
-            this.RefreshGames();
             Settings.Default.viewtype = "Banner";
             Settings.Default.Save();
         }
@@ -810,6 +808,7 @@ namespace GameLauncher
         {
             Trace.WriteLine(DateTime.Now + ": Banner View Active");
             BannerViewActive();
+            RefreshGames();
         }
         private void ListButton_OnClick(object sender, RoutedEventArgs e)
         {
