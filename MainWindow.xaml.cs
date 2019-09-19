@@ -811,6 +811,7 @@ namespace GameLauncher
         {
             Trace.WriteLine(DateTime.Now + ": Banner View Active");
             BannerViewActive();
+            RefreshGames();
         }
         private void ListButton_OnClick(object sender, RoutedEventArgs e)
         {
